@@ -1,0 +1,42 @@
+Table Client{
+  id integer [pk, increment]
+  name varchar(255) [not null]
+  password_hash varchar(255) [not null]
+  registration_date timestamp [not null, default: 'now()']
+  }
+
+Table Order{
+  id integer [pk, increment]
+  user_id integer [not null]
+  status varchar(50) [not null, default: 'pending']
+  created_at timestamp [not null, default: 'now()']
+}
+
+Ref: Client.id < Order.user_id
+
+Table Category{
+  id integer [pk, increment]
+  name varchar(100) [unique, not null]
+  description text
+}
+
+Table Products{
+  id integer [pk, increment]
+  name varchar(255) [not null]
+  descriptiin text
+  price decimal(10, 2) [not null]
+  stock_quantity integer [not null, default: 0]
+  category_id integer [not null]
+}
+
+Ref: Category.id < Products.category_id
+
+Table Order_Items{
+  order_id integer [pk]
+  product_id integer [pk]
+  quantity integer [not null, default: 1]
+  price_at_purchase decimal(10, 2) [not null]
+}
+
+Ref: Order.id < Order_Items.order_id
+Ref: Products.id < Order_Items.product_id
