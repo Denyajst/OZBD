@@ -1,5 +1,8 @@
 # OZBD
 Repository for lab1
-
+Лабораторна робота 1
 Логічна схема бази даних за допомогою мови DBML
-[Посилання на проект](https://dbdocs.io/Denyajst/Store-of-board-games-and-accessories-for-them)
+
+Лабораторна робота 2
+Додано .cql файли для створення бази даних
+
